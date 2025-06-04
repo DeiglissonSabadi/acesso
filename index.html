@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,8 +46,9 @@
       background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
     }
 
+    /* Adjusted opacity for the light theme overlay */
     body.light::before {
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.5); /* Reduced from 0.7 to 0.5 */
     }
 
     /* Wrapper adjustments for mobile */
@@ -116,6 +118,7 @@
     }
 
     .remember-forgot {
+      display: flex; /* Changed back to flex for consistent control */
       flex-direction: column; /* Stack vertically on small screens */
       align-items: center; /* Center items when stacked */
       font-size: 13px; /* Slightly smaller font */
@@ -173,8 +176,8 @@
 
     /* Light theme specific styles */
     body.light .wrapper {
-      background-color: rgba(255, 255, 255, 0.8);
-      border: 2px solid rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.6); /* Reduced opacity from 0.8 to 0.6 */
+      border: 2px solid rgba(0, 0, 0, 0.05); /* Reduced opacity from 0.1 to 0.05 */
       color: #000;
     }
 
