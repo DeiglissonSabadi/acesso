@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Login - 7link</title>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,12 +22,13 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be') no-repeat center center/cover;
+      /* Nova imagem de fundo para o tema escuro (provedor de internet) */
+      background: url('https://images.unsplash.com/photo-1574311899933-28c0b7d7f7e9?auto=format&fit=crop&q=80&w=1920&h=1080') no-repeat center center/cover;
       position: relative;
       z-index: 1;
       overflow: hidden;
       transition: all 0.3s ease;
-      padding: 20px; /* Added padding for small screens */
+      padding: 20px;
     }
 
     body::before {
@@ -37,31 +38,34 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(2px);
+      /* Opacidade ligeiramente reduzida para o overlay escuro, para ver mais o fundo */
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px); /* Levemente mais blur para um efeito "futurista" */
       z-index: 0;
     }
 
     body.light {
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      /* Nova imagem de fundo para o tema claro (provedor de internet) */
+      background: url('https://images.unsplash.com/photo-1522204523234-87295a092807?auto=format&fit=crop&q=80&w=1920&h=1080') no-repeat center center/cover;
     }
 
-    /* Adjusted opacity for the light theme overlay */
     body.light::before {
-      background: rgba(255, 255, 255, 0.5); /* Reduced from 0.7 to 0.5 */
+      /* Opacidade ligeiramente reduzida para o overlay claro, para ver mais o fundo */
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(2px); /* Mantendo um blur suave */
     }
 
     /* Wrapper adjustments for mobile */
     .wrapper {
-      width: 100%; /* Take full width on small screens */
-      max-width: 350px; /* Limit max width for larger screens */
+      width: 100%;
+      max-width: 350px;
       background-color: transparent;
-      border: 2px solid rgba(255,255,255,.2);
-      backdrop-filter: blur(15px);
-      box-shadow: 0 0 10px rgba(0,0,0,.2);
-      color: #fff;
-      border-radius: 10px;
-      padding: 30px 25px; /* Slightly less padding on mobile */
+      border: 2px solid rgba(255,255,255,.3); /* Borda mais visível para o tema escuro */
+      backdrop-filter: blur(20px); /* Aumentado o blur para um efeito "glassmorphism" mais forte */
+      box-shadow: 0 0 20px rgba(0,0,0,.3); /* Sombra mais pronunciada */
+      color: #fff; /* Cor do texto padrão para o tema escuro */
+      border-radius: 15px; /* Cantos mais arredondados */
+      padding: 30px 25px;
       text-align: center;
       position: relative;
       z-index: 1;
@@ -69,40 +73,55 @@
     }
 
     .wrapper h1 {
-      font-size: 32px; /* Slightly smaller heading on mobile */
+      font-size: 32px;
       margin-bottom: 20px;
+      color: #fff; /* Título branco no tema escuro */
+    }
+
+    /* Styles for company name */
+    .company-name {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #fff; /* Cor do texto da empresa para o tema escuro */
+        padding-bottom: 5px;
+        border-bottom: 3px solid #00E676; /* Verde vibrante para a 7link (tema escuro) */
+        display: inline-block;
+        line-height: 1.2;
+        transition: all 0.3s ease;
     }
 
     .input-box {
       width: 100%;
       height: 50px;
       position: relative;
-      margin: 25px 0; /* Adjusted margin */
+      margin: 25px 0;
     }
 
     .input-box input {
       width: 100%;
       height: 100%;
       background: transparent;
-      border: 2px solid rgba(255,255,255,.2);
+      border: 2px solid rgba(255,255,255,.4); /* Borda do input mais visível no tema escuro */
       border-radius: 40px;
-      font-size: 15px; /* Slightly smaller font on mobile */
-      color: #fff;
-      padding: 15px 45px 15px 18px; /* Adjusted padding */
+      font-size: 15px;
+      color: #fff; /* Cor do texto do input no tema escuro */
+      padding: 15px 45px 15px 18px;
       outline: none;
       transition: all 0.3s ease;
     }
 
     .input-box input::placeholder {
-      color: #fff;
+      color: rgba(255, 255, 255, 0.7); /* Placeholder ligeiramente transparente no tema escuro */
     }
 
     .input-box i {
       position: absolute;
-      right: 15px; /* Adjusted icon position */
+      right: 15px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 18px; /* Slightly smaller icon */
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.7); /* Ícone ligeiramente transparente no tema escuro */
     }
 
     .sr-only {
@@ -118,25 +137,26 @@
     }
 
     .remember-forgot {
-      display: flex; /* Changed back to flex for consistent control */
-      flex-direction: column; /* Stack vertically on small screens */
-      align-items: center; /* Center items when stacked */
-      font-size: 13px; /* Slightly smaller font */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 13px;
       margin: 15px 0;
-      gap: 10px; /* Space between items when stacked */
+      gap: 10px;
+      color: #fff; /* Cor do texto para "Lembre-me" no tema escuro */
     }
 
     .remember-forgot label {
-        margin-bottom: 5px; /* Space between checkbox and link */
+        margin-bottom: 5px;
     }
 
     .remember-forgot label input {
-      accent-color: #fff;
+      accent-color: #00E676; /* Checkbox verde vibrante no tema escuro */
       margin-right: 3px;
     }
 
     .remember-forgot a {
-      color: #fff;
+      color: #00E676; /* Links em verde vibrante no tema escuro */
       text-decoration: none;
     }
 
@@ -147,25 +167,29 @@
     .btn {
       width: 100%;
       height: 45px;
-      background: #fff;
+      background: #00E676; /* Botão em verde vibrante no tema escuro */
       border: none;
       border-radius: 40px;
       cursor: pointer;
       font-size: 16px;
-      color: #333;
+      color: #333; /* Texto escuro no botão verde para contraste */
       font-weight: 600;
       margin-top: 15px;
       transition: all 0.3s ease;
     }
+    .btn:hover {
+      background: #00C853; /* Verde ligeiramente mais escuro ao passar o mouse */
+    }
 
     .register-link {
       text-align: center;
-      font-size: 13px; /* Slightly smaller font */
+      font-size: 13px;
       margin: 20px 0 15px;
+      color: #fff; /* Cor do texto para "Não tem conta?" no tema escuro */
     }
 
     .register-link p a {
-      color: #fff;
+      color: #00E676; /* Link em verde vibrante no tema escuro */
       text-decoration: none;
       font-weight: 600;
     }
@@ -176,98 +200,128 @@
 
     /* Light theme specific styles */
     body.light .wrapper {
-      background-color: rgba(255, 255, 255, 0.6); /* Reduced opacity from 0.8 to 0.6 */
-      border: 2px solid rgba(0, 0, 0, 0.05); /* Reduced opacity from 0.1 to 0.05 */
-      color: #000;
+      background-color: rgba(255, 255, 255, 0.75); /* Ligeiramente menos transparente para maior legibilidade */
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      color: #333; /* Cor do texto padrão para o tema claro */
+    }
+
+    body.light .wrapper h1 {
+        color: #333; /* Título escuro no tema claro */
+    }
+
+    /* Light theme specific company name color and border color */
+    body.light .company-name {
+        color: #333; /* Cor do texto da empresa para o tema claro */
+        border-bottom: 3px solid #00C853; /* Verde um pouco mais escuro para o tema claro */
     }
 
     body.light .input-box input {
-      border: 2px solid rgba(0, 0, 0, 0.2);
-      color: #000;
+      border: 2px solid rgba(0, 0, 0, 0.3); /* Borda do input mais visível no tema claro */
+      color: #333; /* Cor do texto do input no tema claro */
     }
 
     body.light .input-box input::placeholder {
-      color: #000;
+      color: rgba(51, 51, 51, 0.7); /* Placeholder ligeiramente transparente no tema claro */
+    }
+    body.light .input-box i {
+        color: rgba(51, 51, 51, 0.7); /* Ícone ligeiramente transparente no tema claro */
+    }
+
+    body.light .remember-forgot {
+        color: #333; /* Cor do texto para "Lembre-me" no tema claro */
     }
 
     body.light .remember-forgot a,
     body.light .register-link p a {
-      color: #000;
+      color: #00C853; /* Links em verde consistente no tema claro */
     }
 
     body.light .remember-forgot label input {
-        accent-color: #000;
+        accent-color: #00C853; /* Checkbox verde consistente no tema claro */
     }
 
     body.light .btn {
-        background: #000;
-        color: #fff;
+        background: #00C853; /* Botão em verde consistente no tema claro */
+        color: #fff; /* Texto branco no botão verde */
+    }
+    body.light .btn:hover {
+        background: #00A647; /* Verde ligeiramente mais escuro ao passar o mouse */
+    }
+
+    body.light .register-link {
+        color: #333; /* Cor do texto para "Não tem conta?" no tema claro */
     }
 
     #theme-toggle {
       position: absolute;
-      top: 15px; /* Adjusted for mobile */
-      right: 15px; /* Adjusted for mobile */
+      top: 15px;
+      right: 15px;
       z-index: 2;
       background: none;
       border: none;
-      font-size: 22px; /* Slightly smaller for mobile */
-      color: #fff;
+      font-size: 22px;
+      color: #fff; /* Ícone de tema branco no tema escuro */
       cursor: pointer;
     }
 
     body.light #theme-toggle {
-      color: #000;
+      color: #333; /* Ícone de tema escuro no tema claro */
     }
 
     /* --- Media Queries for Larger Screens (Desktop) --- */
-    @media (min-width: 768px) { /* Apply these styles for screens 768px wide or larger */
+    @media (min-width: 768px) {
       body {
-        padding: 0; /* Remove padding for desktop */
+        padding: 0;
       }
 
       .wrapper {
-        width: 350px; /* Fixed width for desktop */
-        padding: 30px 40px; /* Original padding */
+        width: 350px;
+        padding: 30px 40px;
       }
 
       .wrapper h1 {
-        font-size: 36px; /* Original heading size */
+        font-size: 36px;
+      }
+
+      /* Desktop company name size */
+      .company-name {
+          font-size: 36px;
+          margin-bottom: 20px;
       }
 
       .input-box {
-        margin: 30px 0; /* Original margin */
+        margin: 30px 0;
       }
 
       .input-box input {
-        font-size: 16px; /* Original font size */
-        padding: 20px 45px 20px 20px; /* Original padding */
+        font-size: 16px;
+        padding: 20px 45px 20px 20px;
       }
 
       .input-box i {
-        right: 20px; /* Original icon position */
-        font-size: 20px; /* Original icon size */
+        right: 20px;
+        font-size: 20px;
       }
 
       .remember-forgot {
-        flex-direction: row; /* Display side-by-side on desktop */
-        justify-content: space-between; /* Original distribution */
-        font-size: 14px; /* Original font size */
-        gap: 0; /* Remove gap when side-by-side */
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 14px;
+        gap: 0;
       }
 
       .remember-forgot label {
-        margin-bottom: 0; /* Remove extra margin */
+        margin-bottom: 0;
       }
 
       .register-link {
-        font-size: 14px; /* Original font size */
+        font-size: 14px;
       }
 
       #theme-toggle {
-        top: 20px; /* Original position for desktop */
-        right: 20px; /* Original position for desktop */
-        font-size: 24px; /* Original font size */
+        top: 20px;
+        right: 20px;
+        font-size: 24px;
       }
     }
   </style>
@@ -277,6 +331,7 @@
 
   <div class="wrapper">
     <form action="login.php" method="post" aria-label="Formulário de Login">
+      <div class="company-name">7link</div>
       <h1>Login</h1>
 
       <div class="input-box">
